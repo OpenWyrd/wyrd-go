@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 // Command wyrd-go is the eventual server binary for OpenWyrd MOP.
 // Currently a stub — see MIGRATION-PLAN.md for the work to flesh this out.
 package main

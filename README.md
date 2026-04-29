@@ -48,6 +48,9 @@ Once crypto + relay are landed, this binary must pass the [`openwyrd/mop-conform
 
 ## License
 
-[AGPL-3.0-or-later](LICENSE). The hosted-service loophole is closed by design: if you run a modified `wyrd-go` against real users, you must publish your modifications.
+This repo is **mixed-license** — see [`LICENSING.md`](LICENSING.md) for the full breakdown. Short version:
 
-The TypeScript client library [`@openwyrd/mop`](https://github.com/openwyrd/mop-js) is Apache-2.0, deliberately. The trust boundary is the server, not the client.
+- **Library code** (`url/`, `wire/`, `crypto/`, `store/`) — Apache-2.0. Vendor it freely; the trust boundary is the server, not the libraries.
+- **Daemon code** (`cmd/wyrd-go/`, `relay/`) — AGPL-3.0-or-later. The hosted-service loophole closes here; running a modified server against users obligates you to publish your modifications.
+
+The split mirrors the JS side: [`@openwyrd/mop`](https://github.com/openwyrd/mop-js) is permissive, [`openwyrd/sendwyrd`](https://github.com/openwyrd/sendwyrd) is copyleft. Repository root [`LICENSE`](LICENSE) is AGPL-3.0-or-later as the default; each Apache-2.0 directory carries its own [`LICENSE`](url/LICENSE).

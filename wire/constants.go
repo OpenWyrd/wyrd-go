@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: Apache-2.0
+
 // Package wire defines the byte-level types of the OpenWyrd MOP wire format.
 // See https://github.com/openwyrd/mop/blob/main/spec/MOP-001.md §4.
 package wire
