@@ -18,7 +18,15 @@ jobs:
       - name: go mod tidy (verify)
         run: |
           go mod tidy
-          git diff --exit-code go.mod go.sum
+          # go.sum may not exist when there are no external deps yet —
+          # only diff files that are tracked.
+          changed=$(git status --porcelain go.mod go.sum 2>/dev/null || true)
+          if [ -n "$changed" ]; then
+            echo "go.mod / go.sum drift after tidy:"
+            echo "$changed"
+            git diff go.mod go.sum 2>/dev/null || true
+            exit 1
+          fi
       - name: go vet
         run: go vet ./...
       - name: go test
